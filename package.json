@@ -1,0 +1,55 @@
+{
+  "name": "dev002-burger-queen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "app para tomar pedidos",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^9.17.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.35.0",
+    "eslint-plugin-react": "^7.32.2",
+    "vite": "^4.1.0",
+    "vitest": "^0.29.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingridgallegosp/DEV002-burger-queen.git"
+  },
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ]
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Ingrid Gallegos P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingridgallegosp/DEV002-burger-queen/issues"
+  },
+  "homepage": "https://github.com/ingridgallegosp/DEV002-burger-queen#readme"
+}
