@@ -1,0 +1,57 @@
+{
+    "sandwiches" : [
+        {
+            "id": "01",
+            "item": "Athos",
+            "description": "Sliced bread",
+            "price": "3.50"
+        },
+        {
+            "id": "02",
+            "item": "Porthos",
+            "description": "Sliced bread",
+            "price": "4.00"
+        },
+        {
+            "id": "03",
+            "item": "Aramis",
+            "description": "Sliced bread",
+            "price": "3.50"
+        },
+        {
+            "id": "04",
+            "item": "Montecristo",
+            "description": "Sliced bread, turkey ham and mozzarella cheese",
+            "price": "3.50"
+        }
+    ],
+    "side dishes" : [
+        {
+            "id": "10",
+            "item": "French Fries",
+            "price": "2.00"
+        },
+        {
+            "id": "11",
+            "item": "Fresh Salad",
+            "price": "3.50"
+        },
+        {
+            "id": "12",
+            "item": "Chips",
+            "price": "2.00"
+        }
+    ],
+    "drinks" : [
+        {
+            "id": "20",
+            "item": "Orange Juice",
+            "price": "2.50"
+        },
+        {
+            "id": "21",
+            "item": "Berries Shake",
+            "price": "3.00"
+        }
+    ]
+}
