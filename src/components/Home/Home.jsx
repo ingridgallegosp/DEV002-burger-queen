@@ -1,10 +1,12 @@
 import React from "react"
+import LayoutComponent from "../Layout/Layout"
 
-function HomeComponent () {
+const HomeComponent = () => {
+   
     return(
-        <div>
-            <p>Hola</p>
-        </div>
+        <LayoutComponent>
+            <p>Welcome</p>
+        </LayoutComponent>
     )
 }
 

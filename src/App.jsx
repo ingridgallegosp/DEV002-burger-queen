@@ -7,17 +7,19 @@ import LoginComponent from "./components/Login/Login"
 import NewOrderComponent from "./components/NewOrder/NewOrder"
 import Error404 from "./components/Error404/Error404"
 
+import {AuthProvider} from "./context/authContext"
 
-
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomeComponent/>} />
-        <Route path="/login" element={<LoginComponent/>} />
-        <Route path="/new-order" element={<NewOrderComponent/>} />
-        <Route path="/404" element={<Error404/>} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<HomeComponent/>} />
+          <Route path="/login" element={<LoginComponent/>} />
+          <Route path="/new-order" element={<NewOrderComponent/>} />
+          <Route path="/404" element={<Error404/>} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

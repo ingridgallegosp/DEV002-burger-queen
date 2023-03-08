@@ -1,0 +1,63 @@
+    div{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        form{
+            height: 90%;
+            width: 32%;
+           
+            figure{
+                height: 35%;
+                width: 95%;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+
+                img{
+                    width: 100%;
+                    padding-bottom: 5%;
+                }
+            }
+
+            .info{
+                width: 95%;
+                height: 15%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                label{
+                    
+
+                }
+                input{
+
+                }
+                p{
+
+                }
+
+            }
+            .button{
+                height: 35%;
+                width: 95%;
+                display: flex;
+                justify-content: center;
+                padding-top: 15%;
+
+                button{
+                    height: 3rem;
+                    width: 18rem;
+                    background: black;
+                    border-radius: 0.6rem;
+                    color: white;
+                    font-size: x-large;
+                }
+            }
+        }
+    }
