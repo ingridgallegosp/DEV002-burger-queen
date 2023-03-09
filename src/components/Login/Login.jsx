@@ -13,11 +13,10 @@ function LoginComponent () {
     //el valor es lo que estoy trayendo - en este caso el objeto y el objeto tiene una funcion sigIn
     //desde useAuth importo login
     const { logIn } = useAuth()
-    
-    const navigate = useNavigate()
     const [email, setEmail] = useState() //--
     const [password, setPassword] = useState() //--
     let [error, setError]= useState()
+    const navigate = useNavigate()
     
     //funcion que actualiza el estado (valores de email y password)-------CHEQUEAR
     /* const handleChange = ({target:{name, value}}) => {

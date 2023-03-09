@@ -3,14 +3,34 @@
     width: 100vw;
     display: flex;
     flex-direction: row;
-    background-color: rgb(245, 245, 245);
+    //background-color: $bwhite;
     
-    #time{
+    #time{ 
+        height: 100%;
         width: 25%;
         display: flex;
+        padding-left: 3%;
         align-items: flex-start;
         flex-direction: column;
         justify-content: center;
+        
+        .title{
+            height: 65%;
+            font-size: 1.5rem;
+            //color: $gray-black;
+            display: flex;
+            position: bottom;
+            align-items: flex-end;
+        }
+
+        .subtitle{
+            height: 35%;
+            font-size: 0.9rem;
+            //color: var(--gray) ;
+            display: flex;
+            position: bottom;
+            align-items: center;
+        }
     }
 
     #logo{
@@ -35,11 +55,29 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+
+            .title{
+                height: 65%;
+                font-size: 1.5rem;
+                //color: $black;
+                display: flex;
+                position: bottom;
+                align-items: flex-end;
+            }
+    
+            .subtitle{
+                height: 35%;
+                font-size: 0.9rem;
+                //color: ;
+                display: flex;
+                position: bottom;
+                align-items: center;
+            }
         }
         
         figure{
             display: flex;
-            width: 30%;
+            width: 40%;
             align-content: center;
             justify-content: center;
 

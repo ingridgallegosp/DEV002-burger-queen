@@ -32,10 +32,20 @@
                 justify-content: space-evenly;
 
                 label{
+                    font-size: 2vw;
+                    color: var(--font-gris);
                     
 
                 }
                 input{
+
+                    border: 0;
+                    //border-bottom: 2vw solid var(--black);
+                    //margin-top: 2%;
+                    //padding-bottom: 0.4vh;
+                    background: none;
+                    font-size: 2vw;
+                    outline: none;
 
                 }
                 p{
