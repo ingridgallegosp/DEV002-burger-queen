@@ -1,6 +1,6 @@
 import React from "react"
 
-function NewOrderComponent () {
+const Error404 = () => {
     return(
         <div>
             <p> Not Found </p>
@@ -8,4 +8,4 @@ function NewOrderComponent () {
     )
 }
 
-export default NewOrderComponent
+export default Error404

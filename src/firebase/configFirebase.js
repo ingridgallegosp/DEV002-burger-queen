@@ -1,11 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getFirestore } from "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged} from 'firebase/auth';
+import { getFirestore, collection, query, where } from "firebase/firestore";
+
 
 import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDERING_ID, APP_ID} from './secrets.js';
 
-// Your web app's Firebase configuration
+// Web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: AUTH_DOMAIN,
@@ -20,12 +21,20 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-//
-export const uid = onAuthStateChanged(auth, (user) => {
+// Log in
+export const logIn = async (email, password) => await signInWithEmailAndPassword(auth, email, password);
+
+// Log out
+export const logOut = () => signOut(auth);
+
+// Auth state listener
+export const onAuthState = onAuthStateChanged(auth, (user) => {
   if (user) {
-      return user.uid;
+    const uid = user.uid;
   } else {
-      console.log("There's no user signed in")
-      
+    console.log("no user")
   }
 });
+
+// Current user
+export const user = auth.currentUser

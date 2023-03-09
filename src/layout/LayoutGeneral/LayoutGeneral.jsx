@@ -1,8 +1,8 @@
 import React from "react"
 import HeaderComponent from "./Header"
-import "./Layout.scss"
+import "./LayoutGeneral.scss"
 
-const LayoutComponent = ({ children }) => {
+const LayoutGeneral = ({ children }) => {
     return (
         <div>
             <HeaderComponent/>
@@ -13,5 +13,5 @@ const LayoutComponent = ({ children }) => {
     )
   }
   
-export default LayoutComponent
+export default LayoutGeneral
   

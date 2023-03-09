@@ -1,41 +1,32 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
-import { useAuth } from "../../context/authContext"
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-//import { collection, query, where } from "firebase/firestore";
-import { auth, db } from "../../firebase/configFirebase"; 
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../utils/routes";
+import { collection, query } from "firebase/firestore";
+import { auth, db, user, onAuthState } from "../../firebase/configFirebase"; 
 import "./Header.scss"
 
-
-
 const HeaderComponent = () => {
-
-    // Me devuelve la informacion de mi contexto
-    const { user, logOut } = useAuth()
     const navigate = useNavigate()
 
-    // User uid
-    const uid = onAuthStateChanged(auth, (user) => {
-        if (user) {
-            return user.uid;
-        } else {
-            console.log("There's no user signed in")
-        }
-    });
-
-    //Consultar 
-    /* 
-    const subColRef = query(collection(db, 'usuarios', currentUser))
-    console.log(subColRef) */
-    
+    onAuthState()
+    if (user !== null) {
+        const uid = user.uid;        
+    } else if (!user) {
+        navigate(routes.LOGIN)
+    }
 
     
 
-   
+    // Info 
+    /* const displayName = query(collection(db, 'usuarios', user.displayName))
+    console.log(displayName)
+    const rol = query(collection(db, 'usuarios', user.rol))
+    console.log(displayName) */
+    
     // Log Out
     const handleLogout = async () => {
         await logOut
-        navigate('/login')
+        navigate(routes.LOGIN)
     }
 
     return (
@@ -49,8 +40,8 @@ const HeaderComponent = () => {
             </figure>
             <section id="user">
                 <section>
-                    <p className="title">User Name</p>
-                    <p className="subtitle">Rol</p>
+                    <p className="title">{/*{displayName}*/}</p>
+                    <p className="subtitle">{/*{rol}*/}</p>
                 </section>
                 <figure>
                     {/*<img src="" alt="Log Out"/>*/}
