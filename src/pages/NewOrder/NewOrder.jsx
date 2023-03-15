@@ -16,8 +16,10 @@ const NewOrderComponent = () => {
     console.log(sandwiches) */
     
     //hacer consulta productos
+    // for each object imprimir tarjeta
     //filtrar segun boton sand/drink etc
     //pintar segun seccion
+    
     //React.createElement('div').
 
     //sandwiches
