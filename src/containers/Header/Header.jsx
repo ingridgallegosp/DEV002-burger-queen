@@ -1,31 +1,28 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
+import { collection, doc, getDocs, getDoc, query } from "firebase/firestore";
+import { auth, db, logOut } from "../../firebase/configFirebase"; 
 import { routes } from "../../utils/routes";
-import { collection, query } from "firebase/firestore";
-import { auth, db, user, onAuthState } from "../../firebase/configFirebase"; 
 import "./Header.scss"
 
 const HeaderComponent = () => {
-    const navigate = useNavigate()
-
-    onAuthState()
-    if (user !== null) {
-        const uid = user.uid;        
-    } else if (!user) {
-        navigate(routes.LOGIN)
-    }
-
     
-
+    const navigate = useNavigate()    
+    const returnHome = () => navigate(routes.HOME)
     // Info 
-    /* const displayName = query(collection(db, 'usuarios', user.displayName))
-    console.log(displayName)
-    const rol = query(collection(db, 'usuarios', user.rol))
-    console.log(displayName) */
+    /* const signedUser = auth.currentUser    
+    const uid = signedUser.uid
+    console.log(uid)
+
+    const docRef = doc(collection(db, 'usuarios', uid, 'displayName.value'))
+    console.log(docRef)
+    const querySnapshot = async () => await getDoc(docRef);
+     */ //-- OK activar luego de maquetar
+    
     
     // Log Out
-    const handleLogout = async () => {
-        await logOut
+    const handleLogout = () => {
+        logOut
         navigate(routes.LOGIN)
     }
 
@@ -36,7 +33,7 @@ const HeaderComponent = () => {
                 <p className="subtitle">Date</p>
             </section>
             <figure id="logo">
-                <img className="logo" src="src/assets/montagu-logo.png" alt="Logo Montagu"/>
+                <img className="logo" onClick={returnHome} src="src/assets/montagu-logo.png" alt="Logo Montagu"/>
             </figure>
             <section id="user">
                 <section>

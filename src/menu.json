@@ -24,8 +24,15 @@
             "description": "Sliced bread, turkey ham and mozzarella cheese",
             "price": "3.50"
         }
+        {
+            "id": "05",
+            "item": "Chacarrero",
+            "description": "Bread, meet, tomatoes and green beans",
+            "price": "3.80"
+        }
     ],
-    "side dishes" : [
+
+    "extras" : [
         {
             "id": "10",
             "item": "French Fries",
@@ -42,6 +49,7 @@
             "price": "2.00"
         }
     ],
+
     "drinks" : [
         {
             "id": "20",

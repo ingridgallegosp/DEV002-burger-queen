@@ -27,14 +27,16 @@ export const logIn = async (email, password) => await signInWithEmailAndPassword
 // Log out
 export const logOut = () => signOut(auth);
 
-// Auth state listener
+/* // Auth state listener
 export const onAuthState = onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
+    //console.log(uid)
   } else {
     console.log("no user")
   }
-});
+  return user
+}); */
 
 // Current user
-export const user = auth.currentUser
+export const currentUser = auth.currentUser

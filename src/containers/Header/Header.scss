@@ -1,9 +1,11 @@
+@import "../../utils/vars.scss" ;
+
 #header{
     height: 11vh;
     width: 100vw;
     display: flex;
     flex-direction: row;
-    //background-color: $bwhite;
+    background-color: $white-white;
     
     #time{ 
         height: 100%;
@@ -17,7 +19,7 @@
         .title{
             height: 65%;
             font-size: 1.5rem;
-            //color: $gray-black;
+            color: $black;
             display: flex;
             position: bottom;
             align-items: flex-end;
@@ -26,7 +28,7 @@
         .subtitle{
             height: 35%;
             font-size: 0.9rem;
-            //color: var(--gray) ;
+            color: $gray-black;
             display: flex;
             position: bottom;
             align-items: center;
@@ -59,7 +61,7 @@
             .title{
                 height: 65%;
                 font-size: 1.5rem;
-                //color: $black;
+                color: $black;
                 display: flex;
                 position: bottom;
                 align-items: flex-end;

@@ -1,0 +1,42 @@
+@import "../../utils/vars.scss";
+
+.order{
+    height: 89vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+
+    .main{
+        width: 57vw;
+
+        .options-nav{
+            height: 7%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        
+            section{
+        
+                p{
+                    font-size: 1.2rem;
+                    color: $gray;
+                }
+            }
+        }
+
+        .products-info{
+            height: 98%;
+            width: 99%;
+            background-color: #ffffff;
+            border-radius: 0.7rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+    }
+}

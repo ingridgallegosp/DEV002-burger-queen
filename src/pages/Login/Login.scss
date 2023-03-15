@@ -1,3 +1,5 @@
+@import "../../utils/vars.scss";
+
     div{
         height: 100%;
         width: 100%;
@@ -12,7 +14,7 @@
             width: 32%;
            
             figure{
-                height: 35%;
+                height: 40%;
                 width: 95%;
                 display: flex;
                 align-items: flex-end;
@@ -20,7 +22,7 @@
 
                 img{
                     width: 100%;
-                    padding-bottom: 5%;
+                    padding-bottom: 20%;
                 }
             }
 
@@ -32,33 +34,29 @@
                 justify-content: space-evenly;
 
                 label{
-                    font-size: 2vw;
-                    color: var(--font-gris);
-                    
-
+                    font-size: 1.4rem;
+                    color: $black;
                 }
+
                 input{
-
-                    border: 0;
-                    //border-bottom: 2vw solid var(--black);
-                    //margin-top: 2%;
-                    //padding-bottom: 0.4vh;
+                    border:none;
                     background: none;
-                    font-size: 2vw;
+                    font-size: 1.4rem;
                     outline: none;
-
                 }
-                p{
 
+                p{
+                    font-size: 0.9rem;
+                    //color: ;
                 }
 
             }
             .button{
-                height: 35%;
+                height: 30%;
                 width: 95%;
                 display: flex;
                 justify-content: center;
-                padding-top: 15%;
+                padding-top: 20%;
 
                 button{
                     height: 3rem;
@@ -66,7 +64,7 @@
                     background: black;
                     border-radius: 0.6rem;
                     color: white;
-                    font-size: x-large;
+                    font-size: 1.5rem;
                 }
             }
         }
