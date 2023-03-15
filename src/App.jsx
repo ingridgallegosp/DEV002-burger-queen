@@ -6,6 +6,7 @@ import NewOrderComponent from "./pages/NewOrder/NewOrder"
 import Error404 from "./pages/Error404/Error404"
 import { routes } from "./utils/routes"
 import './App.scss'
+
 //import { PrivateRoute } from "./utils/privateRoute"
 
 const App = () => {

@@ -5,15 +5,20 @@ import PurchaseOrder from "../../containers/PurchaseOrder/PurchaseOrder"
 //import OptionsNavComponent from "../../containers/OptionsNav/OptionsNavComponent"
 import ProductComponent from "../../components/Product/ProductComponent"
 import "../NewOrder/NewOrder.scss"
-import "../../menu.json"
+//import data from "../../menu.json"
+import data from '../../menu.json'
+
 
 const NewOrderComponent = () => {
-    const menuData = JSON.parse(menu)
-    const sandwiches = menuData.filter(menuData => menuData.sandwiches)
+    const menuData = data
+    console.log(typeof menuData)
+    /*  sandwiches = menuData.filter(menuData => menuData.sandwiches)
+    console.log(sandwiches) */
     
     //hacer consulta productos
     //filtrar segun boton sand/drink etc
     //pintar segun seccion
+    //React.createElement('div').
 
     //sandwiches
     //Drinks
