@@ -3,32 +3,48 @@
         {
             "id": "01",
             "item": "Athos",
-            "description": "Sliced bread",
-            "price": "3.50"
+            "description": "Blistered Tomato",
+            "price": "3.50",
+            "photo": "src/assets/s-blistered-tomato.jpg"
         },
         {
             "id": "02",
             "item": "Porthos",
-            "description": "Sliced bread",
-            "price": "4.00"
+            "description": "BBQ Chicken",
+            "price": "4.00",
+            "photo":"src/assets/s-bbq-Chicken.jpg"
         },
         {
             "id": "03",
             "item": "Aramis",
-            "description": "Sliced bread",
-            "price": "3.50"
+            "description": "Asian mushroom",
+            "price": "3.50",
+            "photo":"src/assets/s-asian-mushroom.jpg"
         },
         {
             "id": "04",
             "item": "Montecristo",
-            "description": "Sliced bread, turkey ham and mozzarella cheese",
-            "price": "3.50"
+            "description": "Turkey, ham, cheese",
+            "price": "3.50",
+            "photo":"src/assets/s-montecristo.jpg"
+
         }
+        ,
         {
             "id": "05",
             "item": "Chacarrero",
-            "description": "Bread, meet, tomatoes and green beans",
-            "price": "3.80"
+            "description": "Meet, tomatoe, beans",
+            "price": "3.80",
+            "photo":""
+
+        }
+        ,
+        {
+            "id": "06",
+            "item": "Veggie",
+            "description": "Fresh vegetables",
+            "price": "3.80",
+            "photo":"src/assets/s-veggie.jpg"
         }
     ],
 
@@ -60,6 +76,19 @@
             "id": "21",
             "item": "Berries Shake",
             "price": "3.00"
+        }
+    ],
+
+    "desserts" : [
+        {
+            "id": "30",
+            "item": "Chocolate Cake",
+            "price": "2.50"
+        },
+        {
+            "id": "31",
+            "item": "Jumbo cup",
+            "price": "3.50"
         }
     ]
 }

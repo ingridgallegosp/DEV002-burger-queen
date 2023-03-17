@@ -1,20 +1,18 @@
 import React from "react"
 import "./ProductComponent.scss"
 
-const ProductComponent = () => {
-    
-    
+const ProductComponent = (props) => { 
 
     return(
         <div className="product">
             <section className="product-info">
                 <figure className="photo">
-                    <img src="" alt="product"/>
+                    <img src="" alt={props.id} />
                 </figure>
                 <section className="description">
-                    <p>Name</p>
-                    <p>Description</p>
-                    <p>Price</p>
+                    <p> {props.item} </p>
+                    <p>{props.description} </p>
+                    <p> {props.price} </p>
                 </section>
             </section>
             <section className="add-button">

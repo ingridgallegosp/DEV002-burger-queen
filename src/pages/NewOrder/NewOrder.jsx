@@ -1,31 +1,45 @@
 import React from "react"
+import { useState } from "react"
 import HeaderComponent from "../../containers/Header/Header"
 import MenuBarComponent from "../../containers/MenuBar/MenuBarComponent"
 import PurchaseOrder from "../../containers/PurchaseOrder/PurchaseOrder"
 //import OptionsNavComponent from "../../containers/OptionsNav/OptionsNavComponent"
 import ProductComponent from "../../components/Product/ProductComponent"
 import "../NewOrder/NewOrder.scss"
-//import data from "../../menu.json"
-import data from '../../menu.json'
+import data from "../../menu.json"
 
 
 const NewOrderComponent = () => {
-    const menuData = data
-    console.log(typeof menuData)
-    /*  sandwiches = menuData.filter(menuData => menuData.sandwiches)
-    console.log(sandwiches) */
+    const [products, setProducts] = useState([])
+    const menu = data
+    //console.log(menu)
+    //console.log(typeof menu)
+    
+    const sandwiches = menu.sandwiches
+    console.log(sandwiches)
+
+    const extras = menu.extras
+    const drinks = menu.drinks
+    const desserts = menu.dessert
+
+    const itemId = (array) => array.map((e) => (e.item))
+
+     const handleSubmitSandw = (sandwiches) => {
+        setProducts('')
+        setProducts(sandwiches)
+        console.log('debe mostrar saduches')
+    }  
     
     //hacer consulta productos
-    // for each object imprimir tarjeta
+    //evaluamos - for each imprimir tarjeta
+    
     //filtrar segun boton sand/drink etc
     //pintar segun seccion
-    
-    //React.createElement('div').
+    //con add product debe anadirse a una coleccion 
 
-    //sandwiches
-    //Drinks
-    
-    return(
+    //al hacer clic en add order, el pedido de la coleccion se guarda y la tajeta se pinta en seccion waiting
+
+        return(
         <div className="content-order">
             <HeaderComponent/>
             <div className="order">
@@ -34,7 +48,7 @@ const NewOrderComponent = () => {
                     {/* <OptionsNavComponent/> */}
                     <nav className="options-nav">
                         <section>
-                            <p /* onClick={ sandwiches } */>Sandwiches</p>
+                            <p   onClick = { handleSubmitSandw }  >Sandwiches</p>
                         </section>     
                         <section>
                             <p>Extras</p>
@@ -47,8 +61,18 @@ const NewOrderComponent = () => {
                         </section>   
                     </nav>
                     <section className="products-info" id="products">
-
-                        <ProductComponent/>
+                       
+                        {  sandwiches.map((product) => {
+                            return(
+                            <ProductComponent
+                            key = {product.id}
+                            item = {product.item}
+                            description = {product.description}
+                            price = {product.price}
+                            />
+                            )
+                            
+                        })  }                 
                         
                     </section>
                 </div>
