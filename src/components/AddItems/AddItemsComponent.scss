@@ -1,21 +1,59 @@
+@import "../../utils/vars.scss" ;
+
 .items{
-
+    height: 17%;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 3% 0%;
+    font-size: 1.2rem;
 
-    section{
+    .products{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
 
-        .products{
+        p{
             width: 50%;
         }
 
         .counter{
             width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+
+            button{
+                background: none;
+                border: none;
+                font-size: 1.7rem;
+                color: $lilac-dark;
+                img{
+                    width: 65%;
+                }
+            }
+            span{
+                font-size: 1.5rem;
+            }
         }
+    }
 
         .delete{
-            width: 50%;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: flex-end;
+            figure{
+                width: 1.5rem;;
+                img{
+                    width: 100%;
+                }
+            }
+
+            p{
+                padding-right: 18%;
+                color: $gray;
+            }
         }
 
 
-    }
 }

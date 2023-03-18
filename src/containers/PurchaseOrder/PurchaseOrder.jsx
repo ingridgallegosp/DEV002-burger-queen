@@ -2,6 +2,7 @@ import React from "react"
 import "./PurchaseOrder.scss" 
 
 const PurchaseOrder = () => {
+
     return(
         <section className="purchase-order">
                 <section className="orders">
@@ -28,6 +29,9 @@ const PurchaseOrder = () => {
                         </section>
                     </section>
                     <section className="order">
+                       
+                        
+
                     </section>
                     <section className="total-price">
                         <p>TOTAL:</p>

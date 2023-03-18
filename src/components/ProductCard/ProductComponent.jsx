@@ -7,12 +7,12 @@ const ProductComponent = (props) => {
         <div className="product">
             <section className="product-info">
                 <figure className="photo">
-                    <img src="" alt={props.id} />
+                    <img src={props.photo} alt={props.id} />
                 </figure>
                 <section className="description">
-                    <p> {props.item} </p>
-                    <p>{props.description} </p>
-                    <p> {props.price} </p>
+                    <p className="main-info"> {props.item} </p>
+                    <p className="descript">{props.description} </p>
+                    <p className="main-info"> {props.price} </p>
                 </section>
             </section>
             <section className="add-button">

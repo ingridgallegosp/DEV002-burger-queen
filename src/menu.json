@@ -1,28 +1,29 @@
 {
     "sandwiches" : [
         {
-            "id": "01",
+            "id": "11",
             "item": "Athos",
             "description": "Blistered Tomato",
             "price": "3.50",
             "photo": "src/assets/s-blistered-tomato.jpg"
         },
         {
-            "id": "02",
+            "id": "12",
             "item": "Porthos",
-            "description": "BBQ Chicken",
-            "price": "4.00",
-            "photo":"src/assets/s-bbq-Chicken.jpg"
+            "description": "Mushroom and beaf",
+            "price": "3.80",
+            "photo":"src/assets/s-meet-mushroom.jpg"
+            
         },
         {
-            "id": "03",
+            "id": "13",
             "item": "Aramis",
             "description": "Asian mushroom",
             "price": "3.50",
             "photo":"src/assets/s-asian-mushroom.jpg"
         },
         {
-            "id": "04",
+            "id": "14",
             "item": "Montecristo",
             "description": "Turkey, ham, cheese",
             "price": "3.50",
@@ -31,62 +32,100 @@
         }
         ,
         {
-            "id": "05",
-            "item": "Chacarrero",
-            "description": "Meet, tomatoe, beans",
-            "price": "3.80",
-            "photo":""
-
+            "id": "15",
+            "item": "Bragelonne",
+            "description": "BBQ Chicken",
+            "price": "4.00",
+            "photo":"src/assets/s-bbq-Chicken.jpg"
+        
         }
         ,
         {
-            "id": "06",
+            "id": "16",
             "item": "Veggie",
             "description": "Fresh vegetables",
             "price": "3.80",
             "photo":"src/assets/s-veggie.jpg"
+        },
+        {
+            "id": "17",
+            "item": "Chacarrero",
+            "description": "Meet, tomatoe, beans",
+            "price": "3.80",
+            "photo":"src/assets/s-chacarrero.jpg"
+
+        },
+        {
+            "id": "18",
+            "item": "Torta",
+            "description": "Meet, onios",
+            "price": "3.50",
+            "photo":"src/assets/s-onion-chicken.jpg"
+
         }
     ],
 
     "extras" : [
         {
-            "id": "10",
+            "id": "21",
             "item": "French Fries",
-            "price": "2.00"
+            "description": "P",
+            "price": "2.00",
+            "photo": ""
         },
         {
-            "id": "11",
+            "id": "22",
             "item": "Fresh Salad",
-            "price": "3.50"
+            "description": "Mixed Green Salad",
+            "price": "3.50",
+            "photo": ""
         },
         {
-            "id": "12",
-            "item": "Chips",
-            "price": "2.00"
+            "id": "23",
+            "item": "Parmesan Chips",
+            "description": "Parmesan cheese and chips",
+            "price": "2.00",
+            "photo": "src/assets/ParmesanRanchPotatoChips.jpg"
         }
     ],
 
     "drinks" : [
         {
-            "id": "20",
+            "id": "31",
             "item": "Orange Juice",
-            "price": "2.50"
+            "description": "Natural and fresh fruit",
+            "price": "2.00"
         },
         {
-            "id": "21",
+            "id": "32",
             "item": "Berries Shake",
             "price": "3.00"
+        },
+        {
+            "id": "33",
+            "item": "Ice Tea",
+            "price": "1.00"
+        },
+        {
+            "id": "34",
+            "item": "Soda",
+            "price": "1.00"
+        },
+        {
+            "id": "35",
+            "item": "Coca-Cola",
+            "price": "1.00"
         }
     ],
 
     "desserts" : [
         {
-            "id": "30",
+            "id": "41",
             "item": "Chocolate Cake",
             "price": "2.50"
         },
         {
-            "id": "31",
+            "id": "42",
             "item": "Jumbo cup",
             "price": "3.50"
         }
