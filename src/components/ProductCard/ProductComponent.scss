@@ -1,13 +1,13 @@
 @import "../../utils/vars.scss" ;
 
 .product{
-    height: 34vh;
+    height: 33vh;
     width: 15vw;
     display: flex;
     justify-content: space-between;
 
     .product-info{
-        height: 75%;
+        height: 80%;
         width: 100%;
         background-color: $gray-light;
         display: flex;
@@ -26,8 +26,6 @@
                 height: auto;
                 width: 100%;
                 border-radius: .7rem;
-                
-
             }
         }
 
@@ -47,7 +45,7 @@
     }
     
     .add-button{
-        height:20%;
+        height: 18%;
         width: 100%;
         button{
             height: 100%;

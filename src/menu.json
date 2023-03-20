@@ -10,7 +10,7 @@
         {
             "id": "12",
             "item": "Porthos",
-            "description": "Mushroom and beaf",
+            "description": "Mushroom and beef",
             "price": "3.80",
             "photo":"src/assets/s-meet-mushroom.jpg"
             
@@ -28,7 +28,6 @@
             "description": "Turkey, ham, cheese",
             "price": "3.50",
             "photo":"src/assets/s-montecristo.jpg"
-
         }
         ,
         {
@@ -37,7 +36,6 @@
             "description": "BBQ Chicken",
             "price": "4.00",
             "photo":"src/assets/s-bbq-Chicken.jpg"
-        
         }
         ,
         {
@@ -49,11 +47,10 @@
         },
         {
             "id": "17",
-            "item": "Chacarrero",
-            "description": "Meet, tomatoe, beans",
+            "item": "Chacarero",
+            "description": "Beef, tomatoe, beans",
             "price": "3.80",
             "photo":"src/assets/s-chacarrero.jpg"
-
         },
         {
             "id": "18",
@@ -61,7 +58,6 @@
             "description": "Meet, onios",
             "price": "3.50",
             "photo":"src/assets/s-onion-chicken.jpg"
-
         }
     ],
 
@@ -69,7 +65,7 @@
         {
             "id": "21",
             "item": "French Fries",
-            "description": "P",
+            "description": "Includes onion sauce",
             "price": "2.00",
             "photo": ""
         },
@@ -83,7 +79,7 @@
         {
             "id": "23",
             "item": "Parmesan Chips",
-            "description": "Parmesan cheese and chips",
+            "description": "Includes onion sauce",
             "price": "2.00",
             "photo": "src/assets/ParmesanRanchPotatoChips.jpg"
         }
@@ -94,27 +90,26 @@
             "id": "31",
             "item": "Orange Juice",
             "description": "Natural and fresh fruit",
-            "price": "2.00"
-        },
-        {
-            "id": "32",
-            "item": "Berries Shake",
-            "price": "3.00"
+            "price": "2.00",
+            "photo": ""
         },
         {
             "id": "33",
             "item": "Ice Tea",
-            "price": "1.00"
+            "price": "1.00",
+            "photo": ""
         },
         {
             "id": "34",
             "item": "Soda",
-            "price": "1.00"
+            "price": "1.00",
+            "photo": ""
         },
         {
             "id": "35",
             "item": "Coca-Cola",
-            "price": "1.00"
+            "price": "1.00",
+            "photo": ""
         }
     ],
 
@@ -122,12 +117,14 @@
         {
             "id": "41",
             "item": "Chocolate Cake",
-            "price": "2.50"
+            "price": "2.50",
+            "photo": ""
         },
         {
             "id": "42",
             "item": "Jumbo cup",
-            "price": "3.50"
+            "price": "3.50",
+            "photo": ""
         }
     ]
 }

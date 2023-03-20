@@ -18,10 +18,19 @@
             align-items: center;
         
             section{
+                padding-top: 1%;
                 p{
                     font-size: 1.2rem;
                     color: $gray;
                 }
+                p:hover{
+                    color: $black;
+                    //margin-bottom: $black 0.2rem;
+                    text-decoration: underline $black;
+                    text-decoration-style:solid;
+                    text-decoration-thickness: 0.2rem;  
+                }
+                
             }
         }
         .products-info{

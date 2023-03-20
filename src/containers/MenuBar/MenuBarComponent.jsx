@@ -10,39 +10,39 @@ const MenuBarComponent = () => {
     return(
         <div className="menu-bar">
             <section className="all-buttons">
-                <section className="buttons" id="newOrder">
+                <section className="buttons">
                     <button className="barBtn">
-                        <img className="icons" onClick={newOrder} src="src/assets/new.png" alt="new order"/>
+                        <img className="icons" id="new-order" onClick={newOrder} src="src/assets/new.png" alt="new order"/>
                     </button>
                     <p>New Order</p>
                 </section>
-                <section className="buttons" id="waiting">
+                <section className="buttons" >
                     <button className="barBtn">
-                        <img className="icons" src="src/assets/waiting.png" alt="waiting"/>
+                        <img className="icons" id="waiting" src="src/assets/waiting.png" alt="waiting"/>
                     </button>
                     <p>Waiting</p>
                 </section>
-                <section className="buttons" id="ready">
+                <section className="buttons" >
                     <button className="barBtn">
-                        <img className="icons" src="src/assets/ready.png" alt="ready"/>
+                        <img className="icons" id="ready" src="src/assets/ready.png" alt="ready"/>
                     </button>
                     <p>Ready</p>
                 </section>
-                <section className="buttons" id="closed">
+                <section className="buttons" >
                     <button className="barBtn">
-                        <img className="icons" src="src/assets/closed.png" alt="closed"/>
+                        <img className="icons" id="closed" src="src/assets/closed.png" alt="closed"/>
                     </button>
                     <p>Closed</p>
                 </section>
-                <section className="buttons" id="canceled">
+                <section className="buttons" >
                     <button className="barBtn">
-                        <img className="icons" src="src/assets/canceled.png" alt="canceled"/>
+                        <img className="icons" id="canceled" src="src/assets/canceled.png" alt="canceled"/>
                     </button>
                     <p>Canceled</p>
                 </section>
-                {/* <section className="buttons" id="cooking">
+                {/* <section className="buttons" >
                     <button className="barBtn">
-                        <img className="icons" src="src/assets/" alt="cooking"/>
+                        <img className="icons" id="cooking" src="src/assets/" alt="cooking"/>
                     </button>
                     <p>Cooking</p>
                 </section> */}

@@ -3,27 +3,36 @@ import { useState } from "react"
 import HeaderComponent from "../../containers/Header/Header"
 import MenuBarComponent from "../../containers/MenuBar/MenuBarComponent"
 import ProductComponent from "../../components/ProductCard/ProductComponent"
-import "../NewOrder/NewOrder.scss"
-import data from "../../menu.json"
 import AddItemsComponent from "../../components/AddItems/AddItemsComponent"
+import data from "../../menu.json"
+import "../NewOrder/NewOrder.scss"
 
 const NewOrderComponent = () => {
     const [products, setProducts] = useState([])
-    const menu = data
     
+    const menu = data
     const sandwiches = menu.sandwiches
-    console.log(sandwiches)
+    //console.log(sandwiches)
     const extras = menu.extras
     const drinks = menu.drinks
-    const desserts = menu.dessert
+    const desserts = menu.desserts
 
-    const itemId = (array) => array.map((e) => (e.item))
-
-    const handleSubmitSandw = (sandwiches) => {
+    const handleSubmitSandw = () => {
         setProducts('')
         setProducts(sandwiches)
-        console.log('debe mostrar saduches')
     }  
+    const handleSubmitExtras = () => {
+        setProducts('')
+        setProducts(extras)
+    }  
+    const handleSubmitDrinks = () => {
+        setProducts('')
+        setProducts(drinks)
+    } 
+    const handleSubmitDesserts = () => {
+        setProducts('')
+        setProducts(desserts)
+    } 
     
     //importar data
     //evaluamos - for each imprimir tarjeta
@@ -31,35 +40,33 @@ const NewOrderComponent = () => {
     //pintar segun seccion
     //con add product debe anadirse a orden
     //al hacer clic en add order, se guarda en coleccion
-
-        return(
+    return(
         <div className="content-order">
             <HeaderComponent/>
             <div className="order">
                 <MenuBarComponent/>
                 <div className="main">
-                    {/* <OptionsNavComponent/> */}
                     <nav className="options-nav">
                         <section>
-                            <p  onClick = { handleSubmitSandw }>Sandwiches</p>
+                            <p onClick={ handleSubmitSandw }>Sandwiches</p>
                         </section>     
                         <section>
-                            <p>Extras</p>
+                            <p onClick={ handleSubmitExtras }>Extras</p>
                         </section> 
                         <section>
-                            <p>Drinks</p>
+                            <p onClick={ handleSubmitDrinks }>Drinks</p>
                         </section>  
                         <section>
-                            <p>Dessert</p>
+                            <p onClick={ handleSubmitDesserts }>Desserts</p>
                         </section>   
                     </nav>
                     <section className="products-info" id="products">
                          <section className="search-bar">
-                            <p>Choose some options</p>
+                            <p>Choose some options:</p>
                             <input></input>
                          </section>
                         <section className="products-options">
-                        {  sandwiches.map((product) => {
+                        {  products.map((product) => {
                             return(
                             <ProductComponent
                             key = {product.id}
@@ -68,8 +75,7 @@ const NewOrderComponent = () => {
                             description = {product.description}
                             price = {product.price}
                             />
-                            )
-                            
+                            ) 
                         })  }  
                         </section>
                     </section>
@@ -97,11 +103,14 @@ const NewOrderComponent = () => {
                             </section>
                         </section>
                         <section className="order">
-                        
-                            {<AddItemsComponent/>}  
-                            {<AddItemsComponent/>}  
-                            
 
+                         {/*    { orders.orders.map(order => {
+                                return(
+                                <AddItemsComponent key={order.id}
+                                />
+                                )
+                            })}  
+ */}
                         </section>
                         <section className="total-price">
                             <p>TOTAL:</p>
