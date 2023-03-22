@@ -1,11 +1,15 @@
 import React from "react"
 import "./AddItemsComponent.scss"
 
-const AddItemsComponent = () => {
+const AddItemsComponent = (props) => {
+
+    
+
+
     return(
         <div className="items">
                 <section className="products">
-                    <p>Product Name</p>
+                    <p>{props.item}</p>
                     <section className="counter">
                         <button>
                             <img src="src\assets\minus.png" alt="-"/>
@@ -21,7 +25,7 @@ const AddItemsComponent = () => {
                     <figure>
                         <img src="src/assets/delete.png" alt="x"/>
                     </figure>
-                    <p>$ 3.50</p>
+                    <p>{props.price}</p>
                  </section>
                 
         </div>

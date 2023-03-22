@@ -9,14 +9,16 @@ import "./Header.scss"
 const logoMontagu = "src/assets/montagu-logo.png"
 
 const HeaderComponent = () => {
-
-    const navigate = useNavigate()    
-    const returnHome = () => navigate(routes.HOME)
-    
+   
     //const [uid, setUid] = useState("")
     const [name, setName] = useState("")
     const [rol, setRol] = useState("")
-    const [date, setDate] = useState("")
+
+    const navigate = useNavigate()    
+    const returnHome = () => navigate(routes.HOME)
+    const date = new Date().toLocaleDateString('es-es', {
+        weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',
+    });
 
 
     // Info 
@@ -69,7 +71,7 @@ const HeaderComponent = () => {
         <div id="header">
             <section id = "time">
                 <p className = "title">Resto Sandwich</p>
-                <p className = "subtitle">Date</p>
+                <p className = "subtitle">{ date }</p>
             </section>
             <figure id="logo">
                 <img className = "logo" onClick = { returnHome } src={ logoMontagu } alt = "Logo Montagu"/>
@@ -80,8 +82,9 @@ const HeaderComponent = () => {
                     <p className = "subtitle"></p>
                 </section>
                 <figure>
-                    {/*<img src="" alt="Log Out"/>*/}
-                    <button onClick = { handleLogout }>Log Out</button>
+                    <button >
+                        <img src="src\assets\signout.png" alt="Log Out" onClick = { handleLogout }/>
+                    </button>
                 </figure>
             </section>
         </div>

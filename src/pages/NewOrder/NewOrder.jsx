@@ -1,5 +1,7 @@
 import React from "react"
 import { useState } from "react"
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/configFirebase"; 
 import HeaderComponent from "../../containers/Header/Header"
 import MenuBarComponent from "../../containers/MenuBar/MenuBarComponent"
 import ProductComponent from "../../components/ProductCard/ProductComponent"
@@ -9,13 +11,17 @@ import "../NewOrder/NewOrder.scss"
 
 const NewOrderComponent = () => {
     const [products, setProducts] = useState([])
+    const [customerOrders2, setCustomerOrders2] = useState([])
+
+    const [table, setTable] = useState("")
+    const [customerName, setCustomerName] = useState("")
+    const [orderNumber, setOrderNumber] = useState("")
+    const [status, setStatus] = useState([])
     
-    const menu = data
-    const sandwiches = menu.sandwiches
-    //console.log(sandwiches)
-    const extras = menu.extras
-    const drinks = menu.drinks
-    const desserts = menu.desserts
+    const sandwiches = data.sandwiches
+    const extras = data.extras
+    const drinks = data.drinks
+    const desserts = data.desserts
 
     const handleSubmitSandw = () => {
         setProducts('')
@@ -33,13 +39,43 @@ const NewOrderComponent = () => {
         setProducts('')
         setProducts(desserts)
     } 
+
+    /* const handleSubmitCustomerOrders = () => {
+        console.log(customerOrders)
+        setCustomerOrders({key: "id"})
+    } */ 
     
-    //importar data
-    //evaluamos - for each imprimir tarjeta
-    //filtrar segun boton sandw/drink etc
-    //pintar segun seccion
-    //con add product debe anadirse a orden
-    //al hacer clic en add order, se guarda en coleccion
+    const handleChangeTable = e => setTable(e.target.value)
+    const handleChangeOrderNumber = e => setOrderNumber(e.target.value)
+    const handleChangeCustomerName = e => setCustomerName(e.target.value)
+    
+    const handleSubmitAddOrder = async () => {
+        const ordersCollection = collection(db, "orders");
+        /* if(customerOrders===""){
+            alert("Order number missing")
+        } */
+        if(orderNumber===""){
+            alert("Order number missing")
+        }
+        if(table===""){
+            alert("Table number missing")
+        }
+        if(customerName===""){
+            alert("Order Number Missing")
+        }
+        try {
+            await addDoc((ordersCollection), { orderNumber, table, customerName, }) 
+            //waiter
+            //orders
+            //total
+            //time
+            //setOrders([]) 
+            console.log("order saved!")    
+        } catch (error) {
+            console.log(error);
+        }
+    }
+            
     return(
         <div className="content-order">
             <HeaderComponent/>
@@ -67,16 +103,18 @@ const NewOrderComponent = () => {
                          </section>
                         <section className="products-options">
                         {  products.map((product) => {
-                            return(
-                            <ProductComponent
-                            key = {product.id}
-                            photo = {product.photo}
-                            item = {product.item}
-                            description = {product.description}
-                            price = {product.price}
-                            />
+                            return( 
+                            
+                                <ProductComponent 
+                                key = {product.id}
+                                photo = {product.photo}
+                                item = {product.item}
+                                description = {product.description}
+                                price = {product.price}
+                                /> 
+                            
                             ) 
-                        })  }  
+                        })  } 
                         </section>
                     </section>
                 </div>
@@ -85,16 +123,16 @@ const NewOrderComponent = () => {
                         <section className="new-order">
                             <section className="order-number">
                                 <p>Order </p>
-                                <p>000##</p>
+                                <input placeholder="0025" onChange={ handleChangeOrderNumber }></input>
                             </section>
                             <section className="info">
                                 <section className="user-info">
                                     <label>Customer:</label>
-                                    <input placeholder="Customer Name"></input>
+                                    <input placeholder="Customer Name" onChange={handleChangeCustomerName}></input>
                                 </section>
                                 <section className="table-info">
                                     <label>Table:</label>
-                                    <input placeholder="#"></input>
+                                    <input placeholder="#" onChange={handleChangeTable}></input>
                                 </section>
                             </section>
                             <section className="form">
@@ -104,20 +142,24 @@ const NewOrderComponent = () => {
                         </section>
                         <section className="order">
 
-                         {/*    { orders.orders.map(order => {
+                           {customerOrders2.map(order => {
+                            console.log(customerOrders2)
                                 return(
+                                    
                                 <AddItemsComponent key={order.id}
+                                item = {order.item}
+                                price = {order.price}
                                 />
                                 )
-                            })}  
- */}
+                            })}   
+ 
                         </section>
                         <section className="total-price">
                             <p>TOTAL:</p>
                             <p>$$$$$$</p>
                         </section>
                         <section className="order-btn">
-                            <button>Add Order</button>
+                            <button onClick={handleSubmitAddOrder}>Add Order</button>
                         </section>
                     </section>
                 </div>

@@ -4,31 +4,38 @@ import "./ProductComponent.scss"
 
 //1. Initial state is an empty array
 const initialState = {
-    orders: []//check orderS S AND WITHOUT S-----------------------
+    customerOrders: []
 }
-//2. Reducer is gonna add products to order
+//2. Reducer is gonna add products to orders
+//It is going to take two arguments, the current state and action. 
+//This reducer's job is to modify or update the state object whenever there is an action
+//taken within the app by the user.
+
 const orderReducer = (state, action) => {
     switch(action.type) {
         case 'ADD_TO_ORDER':
             return{
                 ...state,
-                orders: [...state.order, action.payload]
+                orders: [...state.orders, action.payload]
             };
         default: 
-            return state
+            return {
+                state
+            }
     }
-}
+} 
 
 const ProductComponent = (props) => { 
 
     //3. Introduce in document
-    const [orders, dispatch] = useReducer(orderReducer, initialState)
+    const [customerOrders, dispatch] = useReducer(orderReducer, initialState)
 
     //4. handle clic uses dispatch and send value to order
     const handleClick = order => {
+        dispatch({ type: 'ADD_TO_CUSTOMER_ORDER', payload: order})
         console.log('se agrega')
-        dispatch({ type: 'ADD_TO_ORDER', payload: order})
-    }
+    } 
+    console.log(customerOrders)
 
     return(
         <div className="product" key={props.id}>
@@ -43,7 +50,7 @@ const ProductComponent = (props) => {
                 </section>
             </section>
             <section className="add-button">
-                <button onClick={ () => handleClick(props) }>Add</button>
+                <button  onClick = {() => handleClick(props)} >Add</button>
             </section>
         </div>
     )
