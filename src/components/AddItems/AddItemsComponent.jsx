@@ -3,7 +3,9 @@ import "./AddItemsComponent.scss"
 
 const AddItemsComponent = (props) => {
 
-    
+    const addQty = () => 1
+
+    const minusQty = () => 1
 
 
     return(
@@ -12,11 +14,11 @@ const AddItemsComponent = (props) => {
                     <p>{props.item}</p>
                     <section className="counter">
                         <button>
-                            <img src="src\assets\minus.png" alt="-"/>
+                            <img onClick = {addQty}src="src\assets\minus.png" alt="-"/>
                         </button>
-                        <span>#</span>
+                        <span>1</span>
                         <button>
-                            <img src="src\assets\plus.png" alt="+"/>
+                            <img onClick = {minusQty} src="src\assets\plus.png" alt="+"/>
                         </button>
                     </section>
                 </section>

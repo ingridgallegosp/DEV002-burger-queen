@@ -10,14 +10,22 @@ import data from "../../menu.json"
 import "../NewOrder/NewOrder.scss"
 
 const NewOrderComponent = () => {
-    const [products, setProducts] = useState([])
-    const [customerOrders2, setCustomerOrders2] = useState([])
 
+    //Order info
     const [table, setTable] = useState("")
     const [customerName, setCustomerName] = useState("")
     const [orderNumber, setOrderNumber] = useState("")
-    const [status, setStatus] = useState([])
+    const [products, setProducts] = useState([])
     
+    //parent state
+    const [customerOrders, setCustomerOrders] = useState([])
+    // set data
+    const addProducts = (newData) => {
+        setCustomerOrders((prevState) => [...prevState, newData])
+        //setChildData((prevState) => [...prevState, productInfo])
+    }
+
+    //Menu data
     const sandwiches = data.sandwiches
     const extras = data.extras
     const drinks = data.drinks
@@ -38,44 +46,39 @@ const NewOrderComponent = () => {
     const handleSubmitDesserts = () => {
         setProducts('')
         setProducts(desserts)
-    } 
-
-    /* const handleSubmitCustomerOrders = () => {
-        console.log(customerOrders)
-        setCustomerOrders({key: "id"})
-    } */ 
+    }  
     
     const handleChangeTable = e => setTable(e.target.value)
     const handleChangeOrderNumber = e => setOrderNumber(e.target.value)
     const handleChangeCustomerName = e => setCustomerName(e.target.value)
     
-    const handleSubmitAddOrder = async () => {
+    const handleSubmitOrder = async () => {
         const ordersCollection = collection(db, "orders");
-        /* if(customerOrders===""){
-            alert("Order number missing")
-        } */
+
         if(orderNumber===""){
             alert("Order number missing")
+            return
         }
         if(table===""){
             alert("Table number missing")
+            return
         }
         if(customerName===""){
-            alert("Order Number Missing")
+            alert("Customer Name Missing")
+            return
         }
+        /* if(customerOrders===[]){
+            alert("order is empty")
+            return
+        } */
         try {
-            await addDoc((ordersCollection), { orderNumber, table, customerName, }) 
-            //waiter
-            //orders
-            //total
-            //time
-            //setOrders([]) 
+            await addDoc((ordersCollection), { orderNumber, table, customerName, customerOrders})  
             console.log("order saved!")    
         } catch (error) {
             console.log(error);
         }
     }
-            
+      
     return(
         <div className="content-order">
             <HeaderComponent/>
@@ -103,16 +106,16 @@ const NewOrderComponent = () => {
                          </section>
                         <section className="products-options">
                         {  products.map((product) => {
-                            return( 
                             
-                                <ProductComponent 
-                                key = {product.id}
-                                photo = {product.photo}
-                                item = {product.item}
-                                description = {product.description}
-                                price = {product.price}
-                                /> 
-                            
+                            return(               
+                                    <ProductComponent
+                                    key = {product.id}
+                                    addProducts = { addProducts }
+                                    photo = {product.photo}
+                                    item = {product.item}
+                                    description = {product.description}
+                                    price = {product.price}
+                                    /> 
                             ) 
                         })  } 
                         </section>
@@ -142,14 +145,16 @@ const NewOrderComponent = () => {
                         </section>
                         <section className="order">
 
-                           {customerOrders2.map(order => {
-                            console.log(customerOrders2)
+                           {customerOrders.map(order => {
+                            console.log(customerOrders)
+                            //console.log(typeof customerOrders)
                                 return(
-                                    
-                                <AddItemsComponent key={order.id}
-                                item = {order.item}
-                                price = {order.price}
-                                />
+                                    // customerOrders!='' ?  tarejta de abajo : <p>no products yet</p>
+                                    <AddItemsComponent 
+                                    key={order.id}
+                                    item = {order.item}
+                                    price = {order.price}
+                                    />
                                 )
                             })}   
  
@@ -159,7 +164,7 @@ const NewOrderComponent = () => {
                             <p>$$$$$$</p>
                         </section>
                         <section className="order-btn">
-                            <button onClick={handleSubmitAddOrder}>Add Order</button>
+                            <button onClick = { handleSubmitOrder }>Submit Order</button>
                         </section>
                     </section>
                 </div>

@@ -39,6 +39,7 @@
             background-color: $white-white;
             border-radius: 0.7rem;
             font-size: 0.9rem;
+            //border: 0.05rem solid $gray-dark;
 
             .search-bar{
                 height: 12%;
@@ -62,7 +63,8 @@
             overflow: scroll;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 36vh 36vh 36vh;
+            //grid-template-rows: 36vh 36vh 36vh;
+            grid-template-rows: repeat(auto-fit, 36vh);
             justify-items: center;
             align-items: center;
             overflow-x: hidden;
@@ -88,12 +90,13 @@
             background-color: $white-white;
     
             .new-order{
-                height: 25%;
+                height: 35%;
                 width: 92%;
                 padding-top: 2%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: space-evenly;
                 font-size: 1.2rem;
     
                 .order-number{
@@ -101,12 +104,20 @@
                     display: flex;
                     justify-content: flex-end;
                     padding: 4% 0;
+                    
                     p{
                         text-align: right;
+                    }
+                    input{
+                        width: 30%;
+                        font-size: 1.2rem;
+                        border: none;
+                        border-bottom: 0.01rem solid $black;
                     }
                 }
                 .info{
                     display: flex;
+                    height: 30%;
                     width: 100%;
                     flex-direction: row;
                     align-items: center;
@@ -114,14 +125,24 @@
                     
                     .user-info{
                         width: 70%;
+                        
                         input{
                             width: 100%;
+                            
+                            font-size: 1.2rem;
+                            border: none;
+                            border-bottom: 0.01rem solid $black;
                         }
                     }
                     .table-info{
                         width: 25%;
+                        
                         input{
                             width: 100%;
+                            
+                            font-size: 1.2rem;
+                            border: none;
+                            border-bottom: 0.01rem solid $black;
                         }
                     }
                     
@@ -131,9 +152,11 @@
                     font-size: .9rem;
                     display: flex;
                     flex-direction: row;
-                    padding:4%;
                     justify-content: space-between;
-                    padding: 4% 0%;
+                    margin: 4% 0%;
+                    //border-top:  0.1rem solid $gray-dark;
+                    //border-bottom:  0.1rem solid $gray-dark;
+
 
                     p{
                         padding: 0 18%;

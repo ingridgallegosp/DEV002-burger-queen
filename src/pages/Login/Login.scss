@@ -11,11 +11,18 @@
 
         form{
             height: 90%;
-            width: 32%;
+            width: 35%;
+            background-color: $white-white;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            flex-direction: column;
+            border-radius: 0.7rem;
+            border: 0.05rem solid $gray-dark;
            
             figure{
                 height: 40%;
-                width: 95%;
+                width: 90%;
                 display: flex;
                 align-items: flex-end;
                 justify-content: center;
@@ -27,7 +34,7 @@
             }
 
             .info{
-                width: 95%;
+                width: 90%;
                 height: 15%;
                 display: flex;
                 flex-direction: column;
@@ -43,6 +50,7 @@
                     background: none;
                     font-size: 1.4rem;
                     outline: none;
+                    border-bottom: 0.05rem solid $gray-dark;
                 }
 
                 p{
@@ -53,7 +61,7 @@
             }
             .button{
                 height: 30%;
-                width: 95%;
+                width: 90%;
                 display: flex;
                 justify-content: center;
                 padding-top: 20%;
