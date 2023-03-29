@@ -16,7 +16,7 @@ const LoginComponent = () => {
     const navigate = useNavigate()
     
     //Update states (email and password values)
-    const handleChangeEmail = e => { 
+    const handleChangeEmail = e => {
         setError('')
         setEmail(e.target.value)
     }

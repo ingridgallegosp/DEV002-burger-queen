@@ -11,7 +11,7 @@
 
         form{
             height: 90%;
-            width: 35%;
+            width: 38%;
             background-color: $white-white;
             display: flex;
             align-items: center;
@@ -22,46 +22,46 @@
            
             figure{
                 height: 40%;
-                width: 90%;
+                width: 85%;
                 display: flex;
                 align-items: flex-end;
                 justify-content: center;
 
                 img{
-                    width: 100%;
+                    width: 80%;
                     padding-bottom: 20%;
                 }
             }
 
             .info{
-                width: 90%;
+                width: 85%;
                 height: 15%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
 
                 label{
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                     color: $black;
                 }
 
                 input{
                     border:none;
                     background: none;
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                     outline: none;
-                    border-bottom: 0.05rem solid $gray-dark;
+                    border-bottom: 0.05rem solid $lilac-dark;
                 }
 
                 p{
-                    font-size: 0.9rem;
-                    //color: ;
+                    font-size: 0.8rem;
+                    color: $alert;
                 }
 
             }
             .button{
                 height: 30%;
-                width: 90%;
+                width: 85%;
                 display: flex;
                 justify-content: center;
                 padding-top: 20%;
@@ -72,7 +72,7 @@
                     background: black;
                     border-radius: 0.6rem;
                     color: white;
-                    font-size: 1.5rem;
+                    font-size: 1.4rem;
                 }
             }
         }

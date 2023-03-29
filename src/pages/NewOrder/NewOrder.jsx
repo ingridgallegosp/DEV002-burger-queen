@@ -1,39 +1,53 @@
 import React from "react"
 import { useState } from "react"
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase/configFirebase"; 
+import { db, auth } from "../../firebase/configFirebase"; 
 import HeaderComponent from "../../containers/Header/Header"
 import MenuBarComponent from "../../containers/MenuBar/MenuBarComponent"
 import ProductComponent from "../../components/ProductCard/ProductComponent"
 import AddItemsComponent from "../../components/AddItems/AddItemsComponent"
+import ModalComponent from "../../components/Modal/Modal";
+import { date } from "../../containers/Header/Header"
 import data from "../../menu.json"
 import "../NewOrder/NewOrder.scss"
 
-const NewOrderComponent = () => {
+export const useCounter = () => {
+    const [counter, setCounter] = useState(1)
 
-    //Order info
+    const increase = () => setCounter(counter +1)
+    const decrease = () => setCounter(counter -1)
+
+    return{
+        counter, increase, decrease
+    } 
+}
+
+const NewOrderComponent = () => {
+    // Modal
+    const [showModal, setShowModal] = useState(false);
+
+    // Order info
+    const orderNumber = Date.now().toString().slice(-7)
+    const waiterUid = auth.currentUser.uid
+
     const [table, setTable] = useState("")
     const [customerName, setCustomerName] = useState("")
-    const [orderNumber, setOrderNumber] = useState("")
-    const [products, setProducts] = useState([])
-    
-    //parent state
-    const [customerOrders, setCustomerOrders] = useState([])
-    // set data
-    const addProducts = (newData) => {
-        setCustomerOrders((prevState) => [...prevState, newData])
-        //setChildData((prevState) => [...prevState, productInfo])
-    }
+
+    const handleChangeTable = e => setTable(e.target.value)
+    const handleChangeCustomerName = e => setCustomerName(e.target.value)
 
     //Menu data
     const sandwiches = data.sandwiches
     const extras = data.extras
     const drinks = data.drinks
     const desserts = data.desserts
+    
+    // Menu options
+    const [products, setProducts] = useState([])
 
     const handleSubmitSandw = () => {
         setProducts('')
-        setProducts(sandwiches)
+        setProducts(sandwiches) 
     }  
     const handleSubmitExtras = () => {
         setProducts('')
@@ -48,17 +62,44 @@ const NewOrderComponent = () => {
         setProducts(desserts)
     }  
     
-    const handleChangeTable = e => setTable(e.target.value)
-    const handleChangeOrderNumber = e => setOrderNumber(e.target.value)
-    const handleChangeCustomerName = e => setCustomerName(e.target.value)
-    
+    // Orders state(father)
+    const [customerOrders, setCustomerOrders] = useState([])
+
+    // Set Orders data
+    /* const addProducts = (newData) => {
+        setCustomerOrders((prevState) => [...prevState, newData])
+    } */
+    const addProducts = (newData) => {
+        const existingProduct = customerOrders.find((product) => product.id === newData.id);
+        if (existingProduct) {
+          // Product already exists, update the quantity instead of adding a new item
+          setCustomerOrders((prevState) =>
+            prevState.map((product) =>
+              product.id === newData.id ? { ...product, quantity: product.quantity + newData.quantity } : product
+            )
+          );
+        } else {
+          // Product doesn't exist yet, add it to the list
+          setCustomerOrders((prevState) => [...prevState, newData]);
+        }
+      };
+
+    const ordersId =() => customerOrders.filter((item) => item.id);
+    console.log(ordersId(customerOrders))
+
+    const deleteProduct = (id) => {
+        const updatedOrder = customerOrders.filter((item) => item.id !== id);
+        setCustomerOrders(updatedOrder)
+        //console.log("delete")
+    }
+
+    // Qty counter
+    const {counter, increase, decrease} = useCounter()
+
+    // Submit Order
     const handleSubmitOrder = async () => {
         const ordersCollection = collection(db, "orders");
 
-        if(orderNumber===""){
-            alert("Order number missing")
-            return
-        }
         if(table===""){
             alert("Table number missing")
             return
@@ -67,12 +108,13 @@ const NewOrderComponent = () => {
             alert("Customer Name Missing")
             return
         }
-        /* if(customerOrders===[]){
+        if(customerOrders===[]){
             alert("order is empty")
             return
-        } */
+        }  
         try {
-            await addDoc((ordersCollection), { orderNumber, table, customerName, customerOrders})  
+            await addDoc((ordersCollection), 
+            { orderNumber, table, date, customerName, ordersId /* customerOrders */, waiterUid  })  
             console.log("order saved!")    
         } catch (error) {
             console.log(error);
@@ -110,11 +152,12 @@ const NewOrderComponent = () => {
                             return(               
                                     <ProductComponent
                                     key = {product.id}
-                                    addProducts = { addProducts }
+                                    id = {product.id}
                                     photo = {product.photo}
                                     item = {product.item}
                                     description = {product.description}
                                     price = {product.price}
+                                    addProducts = { addProducts }
                                     /> 
                             ) 
                         })  } 
@@ -126,16 +169,20 @@ const NewOrderComponent = () => {
                         <section className="new-order">
                             <section className="order-number">
                                 <p>Order </p>
-                                <input placeholder="0025" onChange={ handleChangeOrderNumber }></input>
+                                <p> { orderNumber } </p>
                             </section>
                             <section className="info">
                                 <section className="user-info">
                                     <label>Customer:</label>
-                                    <input placeholder="Customer Name" onChange={handleChangeCustomerName}></input>
+                                    <input placeholder="Customer Name" 
+                                    onChange={handleChangeCustomerName}>
+                                    </input>
                                 </section>
                                 <section className="table-info">
                                     <label>Table:</label>
-                                    <input placeholder="#" onChange={handleChangeTable}></input>
+                                    <input placeholder="#" 
+                                    onChange={handleChangeTable}>
+                                    </input>
                                 </section>
                             </section>
                             <section className="form">
@@ -146,14 +193,17 @@ const NewOrderComponent = () => {
                         <section className="order">
 
                            {customerOrders.map(order => {
-                            console.log(customerOrders)
+                            //console.log(customerOrders)
                             //console.log(typeof customerOrders)
                                 return(
                                     // customerOrders!='' ?  tarejta de abajo : <p>no products yet</p>
                                     <AddItemsComponent 
                                     key={order.id}
+                                    id = {order.id}
                                     item = {order.item}
+                                    quantity = {counter}
                                     price = {order.price}
+                                    deleteProduct = {deleteProduct}
                                     />
                                 )
                             })}   
@@ -164,10 +214,19 @@ const NewOrderComponent = () => {
                             <p>$$$$$$</p>
                         </section>
                         <section className="order-btn">
-                            <button onClick = { handleSubmitOrder }>Submit Order</button>
+                            <button onClick = { () => setShowModal(true) }>Submit Order</button>
                         </section>
                     </section>
                 </div>
+                <ModalComponent
+                        isOpen={showModal}
+                        onRequestClose={() => setShowModal(false)}
+                        onConfirm={handleSubmitOrder}
+                        onCancel={() => setShowModal(false)}
+                        message="Are you sure you want to submit the order?"
+                        confirmText="Confirm"
+                        cancelText="Cancel"
+                    />
             </div>
         </div>
     )

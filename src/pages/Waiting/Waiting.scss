@@ -107,10 +107,14 @@
                     padding: 4% 0;
                     
                     p{
-                        padding-left: 5%;
                         text-align: right;
                     }
-                    
+                    input{
+                        width: 30%;
+                        font-size: 1.2rem;
+                        border: none;
+                        border-bottom: 0.01rem solid $black;
+                    }
                 }
                 .info{
                     display: flex;

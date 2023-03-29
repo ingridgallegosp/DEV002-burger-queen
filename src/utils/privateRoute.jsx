@@ -10,8 +10,7 @@ import { routes } from "./routes"
 export const PrivateRoute = () => {
 
     // Al iniciar estado es null
-    const [user, setUser]= useState(true)
-    //let auth = {'token':true}
+    const [user, setUser]= useState(null)
     
     // Definimos una escucha y muestra el cambio de estado
     useEffect(() =>  {

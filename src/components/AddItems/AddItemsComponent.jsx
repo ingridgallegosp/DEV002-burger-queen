@@ -1,11 +1,14 @@
 import React from "react"
+import { useCounter } from "../../pages/NewOrder/NewOrder"
 import "./AddItemsComponent.scss"
 
 const AddItemsComponent = (props) => {
+    
+    // Delete const [childData, setChildData] = useState([]);
 
-    const addQty = () => 1
-
-    const minusQty = () => 1
+    // Qty counter
+    const {counter, increase, decrease} = useCounter()
+    
 
 
     return(
@@ -14,18 +17,21 @@ const AddItemsComponent = (props) => {
                     <p>{props.item}</p>
                     <section className="counter">
                         <button>
-                            <img onClick = {addQty}src="src\assets\minus.png" alt="-"/>
+                            <img onClick={decrease} 
+                            src="src\assets\minus.png" alt="-"/>
                         </button>
-                        <span>1</span>
+                        <span>{counter}</span>
                         <button>
-                            <img onClick = {minusQty} src="src\assets\plus.png" alt="+"/>
+                            <img onClick={increase} 
+                            src="src\assets\plus.png" alt="+"/>
                         </button>
                     </section>
                 </section>
 
                 <section className="delete">   
                     <figure>
-                        <img src="src/assets/delete.png" alt="x"/>
+                        <img onClick={() => props.deleteProduct(props.id)}
+                        src="src/assets/delete.png" alt="x"/>
                     </figure>
                     <p>{props.price}</p>
                  </section>

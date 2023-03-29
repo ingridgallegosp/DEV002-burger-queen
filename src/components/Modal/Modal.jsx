@@ -1,17 +1,31 @@
 import React from "react"
+import "../Modal/Modal.scss"
 
-const ModalComponent = () => {
-    return(
-        <div className="modal">
-            <div className="popup">
-                <a className="close" href="#">&times;</a>
-                <div className="content">
-                    <p>Text</p>
-                </div>
-            </div>
+const ModalComponent = ({
+    isOpen,
+    onRequestClose,
+    onConfirm,
+    onCancel,
+    message,
+    confirmText,
+    cancelText
+  }) => {
+    if (!isOpen) return null;
+  
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <section className="modal-sections">
+            <p>{message}</p>
+          </section>
+          <section className="modal-sections">
+            <button className="modal-button" onClick={onConfirm}>{confirmText}</button>
+            <button className="modal-button" onClick={onCancel}>{cancelText}</button>
+          </section>
         </div>
-    )
-}
-export default ModalComponent
-
-
+        {/* <div className="modal-background" onClick={onRequestClose} /> */}
+      </div>
+    );
+  };
+  
+  export default ModalComponent;

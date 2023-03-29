@@ -1,48 +1,44 @@
-.modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .modal:target {
-    visibility: visible;
-    opacity: 1;
-  }
+@import "../../utils/vars.scss" ; 
+
+.modal-overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+
+
+    .modal-content{
+      height: 30%;
+      width: 50%;
+      border-radius: 0.7rem;
+      background-color: $gray-light;
+      box-shadow: 0px 0px 34px -13px $black;
+      -webkit-box-shadow: 0px 0px 34px -13px $black;
+      -moz-box-shadow: 0px 0px 34px -13px $black;
+      
+        .modal-sections{
+          height: 25%;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+
+            p{
+              font-size: 1.2rem;
+            }
+            .modal-button{
+              font-size: 1.2rem;
+              height: 70%;
+              width: 25%;
+              margin: 0 2%;
+              padding: 0 5%;
+              border-radius: 0.5rem;
+              color: $white-white;
+              background-color: $black;
+              cursor: pointer;
+            }
+        }
+    }
+}
   
-  .popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    position: relative;
-    transition: all 5s ease-in-out;
-  }
-  
-  .popup h2 {
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
-  }
-  .popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-  .popup .close:hover {
-    color: #06D85F;
-  }
-  .popup .content {
-    max-height: 30%;
-    overflow: auto;
-  }

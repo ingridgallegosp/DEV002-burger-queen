@@ -4,21 +4,25 @@ import { useNavigate } from "react-router-dom";
 import { collection, doc, getDocs, getDoc, query } from "firebase/firestore";
 import { auth, db, logOut } from "../../firebase/configFirebase"; 
 import { routes } from "../../utils/routes";
+import ModalComponent from "../../components/Modal/Modal";
 import "./Header.scss"
 
 const logoMontagu = "src/assets/montagu-logo.png"
+export const date = new Date().toLocaleDateString('es-es', {
+    weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',
+});
 
 const HeaderComponent = () => {
    
-    //const [uid, setUid] = useState("")
+    const [uid, setUid] = useState("")
     const [name, setName] = useState("")
     const [rol, setRol] = useState("")
+    const [showModal, setShowModal] = useState(false);
+
 
     const navigate = useNavigate()    
     const returnHome = () => navigate(routes.HOME)
-    const date = new Date().toLocaleDateString('es-es', {
-        weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric',
-    });
+    
 
 
     // Info 
@@ -57,14 +61,17 @@ const HeaderComponent = () => {
     
     // Log Out
     const handleLogout = () => {
-        try{
-            //setUser(false)
-            logOut
-            navigate(routes.LOGIN)
-        }
-        catch (error) {
-            console.log(error.code)
-        }
+
+        
+            try{
+                //setUser(false)
+                logOut
+                navigate(routes.LOGIN)
+            }
+            catch (error) {
+                console.log(error.code)
+            }
+        
     }
 
     return (
@@ -77,15 +84,26 @@ const HeaderComponent = () => {
                 <img className = "logo" onClick = { returnHome } src={ logoMontagu } alt = "Logo Montagu"/>
             </figure>
             <section id="user">
-                <section>
+                <section className="titles">
                     <p className = "title"></p>
                     <p className = "subtitle"></p>
                 </section>
                 <figure>
                     <button >
-                        <img src="src\assets\signout.png" alt="Log Out" onClick = { handleLogout }/>
+                        <img 
+                        onClick={() => setShowModal(true)}
+                        src="src\assets\signout.png" alt="Log Out" />
                     </button>
                 </figure>
+                <ModalComponent
+                        isOpen={showModal}
+                        onRequestClose={() => setShowModal(false)}
+                        onConfirm={handleLogout}
+                        onCancel={() => setShowModal(false)}
+                        message="Are you sure you want to log out?"
+                        confirmText="Confirm"
+                        cancelText="Cancel"
+                    />
             </section>
         </div>
     )
